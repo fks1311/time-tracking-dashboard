@@ -1,16 +1,19 @@
 import styled from "styled-components";
 import ellipsis from "assets/icon-ellipsis.svg";
 
-export const ActiveCard = ({ themeColor }) => {
+export const ActiveCard = ({ tf, active }) => {
   return (
-    <OutLayout bg={themeColor}>
-      <IconImg src={themeColor.icon} />
+    <OutLayout tf={tf}>
+      <IconImg src={tf.icon} />
       <InLayout>
         <Title>
-          <p>{themeColor.title}</p>
+          <p>{tf.title}</p>
           <img src={ellipsis} />
         </Title>
-        <Time></Time>
+        <Time>
+          <div>{tf.timeframes[active].current}hrs</div>
+          <p>Last Week - {tf.timeframes[active].previous}hrs</p>
+        </Time>
       </InLayout>
     </OutLayout>
   );
@@ -24,7 +27,7 @@ const OutLayout = styled.div`
   align-items: flex-end;
   border-radius: 20px;
   opacity: 0.8;
-  background-color: ${({ bg }) => bg.color};
+  background-color: ${({ tf }) => tf.color};
 `;
 const IconImg = styled.img`
   height: 80px;
@@ -53,4 +56,19 @@ const Title = styled.div`
   color: white;
   font-weight: bold;
 `;
-const Time = styled.div``;
+const Time = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  div {
+    color: white;
+    font-size: 45px;
+    font-weight: lighter;
+  }
+  p {
+    color: white;
+    font-size: 13px;
+    opacity: 0.6;
+    margin-top: 10px;
+  }
+`;

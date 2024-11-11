@@ -1,15 +1,18 @@
 import styled from "styled-components";
 import { ProfileCard } from "./components/ProfileCard";
 import { ActiveCard } from "./components/ActiveCard";
+import { useState } from "react";
+import timeframes from "utils/data.json";
 import icon_work from "assets/icon-work.svg";
 import icon_play from "assets/icon-play.svg";
 import icon_study from "assets/icon-study.svg";
-import icon_excercise from "assets/icon-exercise.svg";
+import icon_exercise from "assets/icon-exercise.svg";
 import icon_social from "assets/icon-social.svg";
 import icon_selfcare from "assets/icon-self-care.svg";
 
 export default function App() {
-  const active = [
+  const [active, setActive] = useState("daily");
+  const active_title = [
     {
       title: "Work",
       color: "hsl(15, 100%, 70%)",
@@ -26,9 +29,9 @@ export default function App() {
       icon: icon_study,
     },
     {
-      title: "Excercise",
+      title: "Exercise",
       color: "hsl(145, 58%, 55%)",
-      icon: icon_excercise,
+      icon: icon_exercise,
     },
     {
       title: "Social",
@@ -42,12 +45,21 @@ export default function App() {
     },
   ];
 
+  const mergedData = timeframes.map((item) => {
+    const findItem = active_title.find((data) => data.title === item.title);
+    return {
+      ...item,
+      color: findItem.color,
+      icon: findItem.icon,
+    };
+  });
+
   return (
     <Layout>
-      <ProfileCard />
+      <ProfileCard active={active} setActive={setActive} />
       <ActiveGrid>
-        {active.map((data, idx) => (
-          <ActiveCard key={idx} themeColor={data} />
+        {mergedData.map((data, idx) => (
+          <ActiveCard key={idx} tf={data} active={active} />
         ))}
       </ActiveGrid>
     </Layout>

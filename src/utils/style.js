@@ -9,7 +9,6 @@ const breakpoints = {
 };
 
 const primary_color = {
-  blue: `hsl(246, 80%, 60%)`,
   Work: `hsl(15, 100%, 70%)`,
   Play: `hsl(195, 74%, 62%)`,
   Study: `hsl(348, 100%, 68%)`,
@@ -27,5 +26,6 @@ const netural_color = {
 
 export const theme = {
   breakpoints,
+  primary_color,
   netural_color,
 };

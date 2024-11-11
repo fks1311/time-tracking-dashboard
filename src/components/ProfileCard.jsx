@@ -2,7 +2,7 @@ import styled from "styled-components";
 import "utils/font/font.css";
 import jeremy from "assets/image-jeremy.png";
 
-export const ProfileCard = () => {
+export const ProfileCard = ({ active, setActive }) => {
   const states = ["Daily", "Weekly", "Monthly"];
 
   return (
@@ -19,7 +19,15 @@ export const ProfileCard = () => {
         </Profile>
       </InLayout>
       {states.map((data, idx) => (
-        <State key={idx}>{data}</State>
+        <State
+          key={idx}
+          active={active}
+          onClick={() => {
+            setActive(data.toLowerCase());
+          }}
+        >
+          {data}
+        </State>
       ))}
     </OutLayout>
   );
@@ -60,9 +68,7 @@ const Profile = styled.div`
 `;
 const State = styled.div`
   color: white;
-  opacity: 0.3;
   padding: 10px 30px;
-
   &:hover {
     color: white;
     opacity: 1;
