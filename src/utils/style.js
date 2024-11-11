@@ -10,12 +10,12 @@ const breakpoints = {
 
 const primary_color = {
   blue: `hsl(246, 80%, 60%)`,
-  lightRed_work: `hsl(15, 100%, 70%)`,
-  softBlue_play: `hsl(195, 74%, 62%)`,
-  lightRed_study: `hsl(348, 100%, 68%)`,
-  limeGreen_excercise: `hsl(145, 58%, 55%)`,
-  violet_social: `hsl(264, 64%, 52%)`,
-  softOrange_selfCare: `hsl(43, 84%, 65%)`,
+  Work: `hsl(15, 100%, 70%)`,
+  Play: `hsl(195, 74%, 62%)`,
+  Study: `hsl(348, 100%, 68%)`,
+  Excercise: `hsl(145, 58%, 55%)`,
+  Social: `hsl(264, 64%, 52%)`,
+  SelfCare: `hsl(43, 84%, 65%)`,
 };
 
 const netural_color = {
@@ -27,6 +27,5 @@ const netural_color = {
 
 export const theme = {
   breakpoints,
-  primary_color,
   netural_color,
 };

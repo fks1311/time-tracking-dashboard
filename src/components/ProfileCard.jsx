@@ -18,8 +18,8 @@ export const ProfileCard = () => {
           </p>
         </Profile>
       </InLayout>
-      {states.map((data) => (
-        <State>{data}</State>
+      {states.map((data, idx) => (
+        <State key={idx}>{data}</State>
       ))}
     </OutLayout>
   );
@@ -36,11 +36,11 @@ const InLayout = styled.div`
   height: 350px;
   margin-bottom: 10px;
   border-radius: 20px;
-  background-color: ${({ theme: { netural_color } }) => netural_color.desaturated_blue};
+  background-color: #4e31aa;
 `;
 
 const Img = styled.img`
-  width: 100px;
+  width: 80px;
   padding: 30px;
 `;
 const Profile = styled.div`
