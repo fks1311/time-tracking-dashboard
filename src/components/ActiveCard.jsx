@@ -28,6 +28,9 @@ const OutLayout = styled.div`
   border-radius: 20px;
   opacity: 0.8;
   background-color: ${({ tf }) => tf.color};
+  @media ${({ theme }) => theme.breakpoints.mobile} {
+    height: 140px;
+  }
 `;
 const IconImg = styled.img`
   height: 80px;
@@ -46,6 +49,9 @@ const InLayout = styled.div`
   &:hover {
     background-color: #433878;
     cursor: pointer;
+  }
+  @media ${({ theme }) => theme.breakpoints.mobile} {
+    height: 100px;
   }
 `;
 const Title = styled.div`
@@ -70,5 +76,13 @@ const Time = styled.div`
     font-size: 13px;
     opacity: 0.6;
     margin-top: 10px;
+  }
+  @media ${({ theme }) => theme.breakpoints.mobile} {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 20px;
+    div {
+      font-size: 30px;
+    }
   }
 `;

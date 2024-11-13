@@ -9,6 +9,7 @@ import icon_study from "assets/icon-study.svg";
 import icon_exercise from "assets/icon-exercise.svg";
 import icon_social from "assets/icon-social.svg";
 import icon_selfcare from "assets/icon-self-care.svg";
+import { theme } from "utils/style";
 
 export default function App() {
   const [active, setActive] = useState("daily");
@@ -74,10 +75,21 @@ const Layout = styled.div`
   align-items: center;
   gap: 20px;
   background-color: ${({ theme: { netural_color } }) => netural_color.very_dark_blue};
+  @media ${({ theme }) => theme.breakpoints.mobile} {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0px;
+  }
 `;
 const ActiveGrid = styled.div`
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  @media ${({ theme }) => theme.breakpoints.mobile} {
+    display: flex;
+    flex-direction: column;
+  }
 `;

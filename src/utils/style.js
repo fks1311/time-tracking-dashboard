@@ -1,11 +1,12 @@
 const deviceSizes = {
-  mobile: `375px`,
+  mobile: `700px`,
   desktop: `1440px`,
 };
 
 const breakpoints = {
   mobile: `screen and (max-width:${deviceSizes.mobile})`,
   desktop: `screen and (max-width:${deviceSizes.desktop})`,
+  small: `screen and (max-width:375px)`,
 };
 
 const primary_color = {
